@@ -9,7 +9,10 @@ import { HomePage } from '../pages/home/home';
 
 
 import {enableProdMode} from '@angular/core';
-import {ExePlatformModule} from "ng-platforms";
+import {ExePlatformModule, NativeService} from "ng-platforms";
+import {ExePlatformConponentModule} from "../dynamic-component/ExePlatformConponentModule";
+import {AppVersion} from "ionic-native";
+
 
 enableProdMode();
 @NgModule({
@@ -20,6 +23,7 @@ enableProdMode();
   imports: [
     BrowserModule,
     ExePlatformModule,
+    ExePlatformConponentModule,
     IonicModule.forRoot(MyApp),
 
   ],
@@ -32,6 +36,10 @@ enableProdMode();
   providers: [
     StatusBar,
     SplashScreen,
+    AppVersion,
+
+    NativeService,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
